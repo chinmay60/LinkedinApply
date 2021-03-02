@@ -11,7 +11,7 @@
   // time in ms to wait before new employees load after scroll
   const WAIT_AFTER_SCROLL = 3000;
   // message to connect (%EMPLOYEE% and %COMPANY% will be replaced with real values)
-  const MESSAGE = `Hi %EMPLOYEE%,  %COMPANY%`;
+  const MESSAGE = `Hi %EMPLOYEE%, I am interested in software engineering role at %COMPANY%`;
   // keywords to filter employees in specific positions
   const POSITION_KEYWORDS = [
     "software",
@@ -57,9 +57,8 @@
   function getButtonElements() {
     return [
       ...document.querySelectorAll(
-        ".artdeco-button.artdeco-button--2.artdeco-button--full.artdeco-button--secondary.ember-view.full-width"
-      ),
-    ].filter((button) => {
+        ".artdeco-button.artdeco-button--2.artdeco-button--secondary.ember-view.full-width"
+      ),].filter((button) => {
       const cardInnerText = button.offsetParent.innerText.split("\n");
       position = cardInnerText.join(" ");
       return POSITION_KEYWORDS.some((p) => position.match(new RegExp(p, "gi")));
